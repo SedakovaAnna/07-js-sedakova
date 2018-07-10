@@ -290,6 +290,8 @@ label:last-child {
   cursor: pointer;
   text-decoration: none;
   font-weight: 700;
+  line-height: 1;
+  padding-top: 0;
 }
 .button:hover,
 .button:focus {
