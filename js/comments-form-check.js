@@ -25,7 +25,10 @@ $(document).ready(function(){
 		var _formValidate = function (event) {
     		event.preventDefault();//отменить стандартное поведение
 
-    		if (_commentTextArea.val() == '' ) {
+
+
+    		if (_commentTextArea.val().trim() == '' ) {
+    			//.trim() - удаляет лишние пробелы
     			//_commentError.removeClass('error-hide');//удалить класс
     			_commentError.fadeIn(1000);//показать ошибку плавно
     		// event.preventDefault();
