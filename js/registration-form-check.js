@@ -40,40 +40,22 @@ $(document).ready(function(){
     			_emailErrorEmpty.fadeIn(1000);//показать ошибку плавно
     			valid = false;
     		} 
-    		// else {
-    		// 	_emailErrorEmpty.fadeOut(1000);//скрыть ошибку плавно
-    		// }
+    		
+    		var pattern = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
+    		if ( valid && !(pattern.test( _loginText.val().trim() )) )  {
+    			_emailError.fadeIn(1000);//показать ошибку плавно
+    			valid = false;
+	      		} 
 
     		if ( _passwordText.val().trim() == '' ) {
     			_passwordErrorEmpty.fadeIn(1000);//показать ошибку плавно
     			valid = false;
     		} 
-    		// else {
-    		// 	_passwordErrorEmpty.fadeOut(1000);//скрыть ошибку плавно
-    		// }
-
-
-
-    		var pattern = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
     		
-	      		if ( valid && !(pattern.test( _loginText.val().trim() )) )  {
-    			_emailError.fadeIn(1000);//показать ошибку плавно
-    			valid = false;
-    			// console.log(a);
-
-	      		} 
-	     //else {
-    		// 	_emailError.fadeOut(1000);//скрыть ошибку плавно
-    		// }
-
     		if ( valid && (_loginText.val().trim() == 'mail@mail.com')) {
     			_emailErrorBusy.fadeIn(1000);//показать ошибку плавно
     			valid = false;
     		} 
-    		// else {
-    		// 	_emailPasswordError.fadeOut(1000);//скрыть ошибку плавно
-
-    		// }
 
     		if (valid) {
     			_form.unbind('submit').submit(); //убрать и снова добавить элемент отправки формы
@@ -91,9 +73,7 @@ $(document).ready(function(){
     			_passwordErrorEmpty.fadeOut(1000);//скрыть ошибку плавно
 				    			
     			});
-
-
-    		}
+			}
 
 		}
 

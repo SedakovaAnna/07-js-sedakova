@@ -30,49 +30,29 @@ var validate = login + password;
 		}
 
 		// Приватные методы
-    
-		var _formValidate = function (event) {
+    	var _formValidate = function (event) {
     		event.preventDefault();//отменить стандартное поведение
-
 
     		if ( _loginText.val().trim() == '' ) {
     			_emailErrorEmpty.fadeIn(1000);//показать ошибку плавно
     			valid = false;
     		} 
-    		// else {
-    		// 	_emailErrorEmpty.fadeOut(1000);//скрыть ошибку плавно
-    		// }
-
-    		if ( _passwordText.val().trim() == '' ) {
-    			_passwordErrorEmpty.fadeIn(1000);//показать ошибку плавно
-    			valid = false;
-    		} 
-    		// else {
-    		// 	_passwordErrorEmpty.fadeOut(1000);//скрыть ошибку плавно
-    		// }
-
-
-
-    		var pattern = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
     		
-	      		if ( valid && !(pattern.test( _loginText.val().trim() )) )  {
+    		var pattern = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
+    		if ( valid && !(pattern.test( _loginText.val().trim() )) )  {
     			_emailError.fadeIn(1000);//показать ошибку плавно
     			valid = false;
-    			// console.log(a);
+           } 
 
-	      		} 
-	     //else {
-    		// 	_emailError.fadeOut(1000);//скрыть ошибку плавно
-    		// }
-
+            if ( _passwordText.val().trim() == '' ) {
+                _passwordErrorEmpty.fadeIn(1000);//показать ошибку плавно
+                valid = false;
+            } 
+            
     		if ( valid && (_loginText.val().trim() != 'mail@mail.com' || _passwordText.val().trim() != '123')) {
     			_emailPasswordError.fadeIn(1000);//показать ошибку плавно
     			valid = false;
     		} 
-    		// else {
-    		// 	_emailPasswordError.fadeOut(1000);//скрыть ошибку плавно
-
-    		// }
 
     		if (valid) {
     			_form.unbind('submit').submit(); //убрать и снова добавить элемент отправки формы
@@ -91,10 +71,7 @@ var validate = login + password;
 				_emailPasswordError.fadeOut(1000);
     			
     			});
-
-
     		}
-
 		}
 
 		// Возвращаем публичные медоты, которые будут доступны снаружи
